@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------------#
 
 from flask import Flask, render_template, request
-from forms import *
+
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -41,7 +41,7 @@ def register():
 
 @app.route('/forgot')
 def forgot():
-    form = ForgotForm(request.form)
+    
     return render_template('forms/forgot.html', form=form)
 
 # Error handlers.
