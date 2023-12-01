@@ -1,0 +1,66 @@
+#----------------------------------------------------------------------------#
+# Imports
+#----------------------------------------------------------------------------#
+
+from flask import Flask, render_template, request
+from forms import *
+
+#----------------------------------------------------------------------------#
+# App Config.
+#----------------------------------------------------------------------------#
+
+app = Flask(__name__)
+
+
+#----------------------------------------------------------------------------#
+# Controllers.
+#----------------------------------------------------------------------------#
+
+
+@app.route('/')
+def home():
+    return render_template('pages/placeholder.home.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('pages/placeholder.about.html')
+
+
+@app.route('/login')
+def login():
+    form = LoginForm(request.form)
+    return render_template('forms/login.html', form=form)
+
+
+@app.route('/register')
+def register():
+    form = RegisterForm(request.form)
+    return render_template('forms/register.html', form=form)
+
+
+@app.route('/forgot')
+def forgot():
+    form = ForgotForm(request.form)
+    return render_template('forms/forgot.html', form=form)
+
+# Error handlers.
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    #db_session.rollback()
+    return render_template('errors/500.html'), 500
+
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('errors/404.html'), 404
+#----------------------------------------------------------------------------#
+# Launch.
+#----------------------------------------------------------------------------#
+# Default port:
+
+if __name__ == '__main__':
+    app.run()
+
