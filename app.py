@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------------#
 
 from flask import Flask, render_template, request
-
+from owlquery import query_places
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -24,8 +24,7 @@ def home():
 @app.route('/search/<state>/<city>/<zip>', methods=['GET'])
 def search_location(state, city, zip):
     # Process the values (you can perform any logic or use them as needed)
-    
-
+    damns, filling_stations, airports = query_places('main.owl')
     # Return the result as a response
     return render_template('pages/output.html', state=state, city=city, zip=zip)
 
