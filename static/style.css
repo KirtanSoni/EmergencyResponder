@@ -1,0 +1,93 @@
+/* Import Creepster font */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+/* Overall page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('back1.webp'); /* Replace with the URL of your image */
+    background-repeat: no-repeat; /* This line prevents the image from repeating */
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    color: #ff0000; /* Red color for emphasis */
+    margin-top: 20px;
+}
+
+/* Form styling */
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #ff0000; /* Red background for the button */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Individual table styling */
+.column {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(33.33% - 10px); /* adjust the width to your desired size */
+    text-align: center;
+   }
+
+.opHeading {
+    font-family: 'Creepster', cursive;
+    font-size: 30px; /* Adjust the font size as needed */
+    color: #fff;
+}
+
+/* Individual table styling within .column */
+.column table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #333; /* Grey background color */
+    color: #fff; /* White text color */
+}
+
+.column table th, .column table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.column table th {
+    background-color: #ff0000; /* Red background for table headers */
+    color: #fff;
+}
+
+/* Responsive styling for smaller screens */
+@media screen and (max-width: 600px) {
+    form {
+        padding: 10px;
+    }
+}

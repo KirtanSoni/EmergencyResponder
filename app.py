@@ -9,7 +9,7 @@ from flask import Flask, render_template, request
 # App Config.
 #----------------------------------------------------------------------------#
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='templates')
 
 
 #----------------------------------------------------------------------------#
@@ -19,43 +19,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('pages/placeholder.home.html')
+    return render_template('pages/index.html')
 
-
-@app.route('/about')
-def about():
-    return render_template('pages/placeholder.about.html')
-
-
-@app.route('/login')
-def login():
-    form = LoginForm(request.form)
-    return render_template('forms/login.html', form=form)
-
-
-@app.route('/register')
-def register():
-    form = RegisterForm(request.form)
-    return render_template('forms/register.html', form=form)
-
-
-@app.route('/forgot')
-def forgot():
+@app.route('/search/<state>/<city>/<zip>', methods=['GET'])
+def search_location(state, city, zip):
+    # Process the values (you can perform any logic or use them as needed)
     
-    return render_template('forms/forgot.html', form=form)
 
-# Error handlers.
-
-
-@app.errorhandler(500)
-def internal_error(error):
-    #db_session.rollback()
-    return render_template('errors/500.html'), 500
+    # Return the result as a response
+    return render_template('pages/output.html', state=state, city=city, zip=zip)
 
 
-@app.errorhandler(404)
-def not_found_error(error):
-    return render_template('errors/404.html'), 404
+
+
+
+
+
+
 #----------------------------------------------------------------------------#
 # Launch.
 #----------------------------------------------------------------------------#

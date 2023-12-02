@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emergency App Alert</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Emergency App Alert</h1>
+    <form id="alertForm">
+        <label for="state">State:</label>
+        <select id="state" name="state" required>
+            <!-- state options will be loaded here -->
+        </select>
+
+        <label for="city">City:</label>
+        <select id="city" name="city" required>
+            <!-- city options will be loaded here -->
+        </select>
+
+        <label for="zipcode">Zipcode:</label>
+        <select id="zipcode" name="zipcode" required>
+            <!-- cipcode options will be loaded here -->
+        </select>
+
+        <button type="submit">Send Alert</button>
+    </form>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
